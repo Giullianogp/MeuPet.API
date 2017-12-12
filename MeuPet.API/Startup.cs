@@ -47,7 +47,9 @@ namespace MeuPet.API
 
             services.AddEntityFrameworkSqlServer()
                 .AddDbContext<MeuPetContext>(options =>
-                    { options.UseSqlServer(Configuration.GetConnectionString("MeuPetContext")); }
+                    {
+                        options.UseSqlServer(Configuration.GetConnectionString("MeuPetContext"));
+                    }
                     , ServiceLifetime.Transient);
 
 
@@ -81,7 +83,9 @@ namespace MeuPet.API
 
             }
 
+            //app.UseBasicAuthentication().UseMvc();
             app.UseMvc();
+
         }
     }
 }

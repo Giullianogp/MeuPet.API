@@ -18,6 +18,9 @@ namespace MeuPet.API.Services
         public override Pet Obter(Pet entidade)
             => Repository.Obter(entidade.PetId);
 
+        public List<Pet> ObterLista(Usuario user)
+            => Repository.ObterLista(user);
+
         public override Pet Inserir(Pet entidade)
             => Repository.Inserir(entidade);
 
@@ -26,5 +29,10 @@ namespace MeuPet.API.Services
 
         public override void Deletar(Pet entidade)
             => Repository.Deletar(entidade);
+
+        public List<Pet> ObterListaCompleta()
+            => Repository.ObterListaCompleta();
+
+        
     }
 }

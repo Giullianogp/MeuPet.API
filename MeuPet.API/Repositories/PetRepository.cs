@@ -20,6 +20,10 @@ namespace MeuPet.API.Repositories
 
         public override Pet Inserir(Pet entidade)
         {
+            entidade.ImageUrl = "https://meupetblob.blob.core.windows.net/pets/image.png";
+
+            entidade.Usuario = Context.Usuario.First();
+
             Context.Pet.Add(entidade);
             Context.SaveChanges();
             return entidade;
@@ -31,6 +35,21 @@ namespace MeuPet.API.Repositories
             Context.SaveChanges();
             return entidade;
         }
+
+        public List<Pet> ObterLista(Usuario user)
+        {
+            var usuario = Context.Usuario.First(x => x.Nome == user.Nome);
+            return Context.Pet.Where(x => x.Usuario.UsuarioId == usuario.UsuarioId).ToList();
+        }
+
+        public List<Pet> ObterListaCompleta()
+        {
+          
+            return Context.Pet.ToList();
+        }
+
+        
+
 
         public override void Deletar(Pet entidade)
         {

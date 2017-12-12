@@ -26,5 +26,11 @@ namespace MeuPet.API.Services
 
         public override void Deletar(Agenda entidade)
             => Repository.Deletar(entidade);
+
+        public List<Agenda> GetProximas()
+            => Repository.GetProximas();
+
+        public List<Agenda> Get(Pet pet)
+            => Repository.Get(pet);
     }
 }

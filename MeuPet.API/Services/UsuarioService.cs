@@ -27,6 +27,9 @@ namespace MeuPet.API.Services
         public override void Deletar(Usuario entidade)
             => Repository.Deletar(entidade);
 
-      
+        public Usuario Logar(Usuario user)
+            => Repository.Logar(user);
+
+
     }
 }

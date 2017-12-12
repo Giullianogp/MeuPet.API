@@ -11,9 +11,10 @@ using System;
 namespace MeuPet.API.Migrations
 {
     [DbContext(typeof(MeuPetContext))]
-    partial class MeuPetContextModelSnapshot : ModelSnapshot
+    [Migration("20171209112308_AdicionaCamposPet")]
+    partial class AdicionaCamposPet
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

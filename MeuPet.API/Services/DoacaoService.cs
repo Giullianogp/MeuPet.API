@@ -26,5 +26,8 @@ namespace MeuPet.API.Services
 
         public override void Deletar(Doacao entidade)
             => Repository.Deletar(entidade);
+
+        public List<Doacao> GetAll()
+            => Repository.GetAll();
     }
 }

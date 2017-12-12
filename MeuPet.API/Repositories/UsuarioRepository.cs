@@ -38,6 +38,11 @@ namespace MeuPet.API.Repositories
             Context.SaveChanges();
         }
 
+        public Usuario Logar(Usuario user)
+        {
+            return Context.Usuario.FirstOrDefault(x => x.Nome == user.Nome && x.Senha == user.Senha);
+        }
+
 
     }
 }

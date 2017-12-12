@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace MeuPet.API.Controllers
 {
-    public class ControllerBase
+    public class ControllerBase : Controller
     {
         protected readonly IServiceProvider ServiceProvider;
 

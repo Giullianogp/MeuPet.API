@@ -26,7 +26,7 @@ namespace MeuPet.API.Controllers
         [Route("Logar")]
         public Usuario Logar([FromBody] Usuario usuario)
         {
-            return ObterServico<UsuarioService>().Obter(usuario);
+            return ObterServico<UsuarioService>().Logar(usuario);
         }
 
 

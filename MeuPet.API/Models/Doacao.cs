@@ -10,6 +10,7 @@ namespace MeuPet.API.Models
         public int DoacaoId { get; set; }
         public string Descricao { get; set; }
         public string Contato { get; set; }
+        public string ImageUrl { get; set; }
 
         public Usuario Usuario { get; set; }
     }

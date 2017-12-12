@@ -18,6 +18,11 @@ namespace MeuPet.API.Repositories
             return Context.Doacao.Find(id);
         }
 
+        public List<Doacao> GetAll()
+        {
+            return Context.Doacao.ToList();
+        }
+
         public override Doacao Inserir(Doacao entidade)
         {
             Context.Doacao.Add(entidade);

@@ -20,6 +20,7 @@ namespace MeuPet.API.Repositories
 
         public override Agenda Inserir(Agenda entidade)
         {
+            entidade.Usuario = Context.Usuario.First();
             Context.Agenda.Add(entidade);
             Context.SaveChanges();
             return entidade;
@@ -36,6 +37,16 @@ namespace MeuPet.API.Repositories
         {
             Context.Agenda.Remove(entidade);
             Context.SaveChanges();
+        }
+
+        public List<Agenda> GetProximas()
+        {
+            return Context.Agenda.Where(x => x.Data > DateTime.Now).ToList();
+        }
+
+        public List<Agenda> Get(Pet pet)
+        {
+            return Context.Agenda.Where(x => x.Data > DateTime.Now && x.Pet.PetId == pet.PetId).ToList();
         }
     }
 }

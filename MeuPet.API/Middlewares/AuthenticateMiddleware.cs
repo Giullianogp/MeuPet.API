@@ -38,9 +38,24 @@ namespace MeuPet.API.Middlewares
                 return;
             }
 
-            var usuario = JsonConvert.DeserializeObject<Usuario>(auth);
+            auth = auth.Replace("Basic ", "");
 
-            context.Items.Add("usuario", usuario);
+            try
+            {
+                var decodedToken = Encoding.UTF8.GetString(Convert.FromBase64String(auth));
+
+                var usuario = new Usuario
+                {
+                    Nome = decodedToken.Split(':')[0],
+                    Senha = decodedToken.Split(':')[1]
+                };
+
+                context.Items.Add("usuario", usuario);
+            }
+            catch (Exception)
+            {
+                context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            }
 
             await _next.Invoke(context);
         }
